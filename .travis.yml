@@ -97,7 +97,7 @@ before_script:
 script:
   - make -j2
   - test/tiny_dnn_test
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$USE_SSE" == "ON" ] && [ "$USE_AVX" == "ON" ] && [ "$USE_DOUBLE" == "ON" ]; then
       make clang-format-check;
     fi
 
